@@ -1,0 +1,68 @@
+@import url("setup.css");
+
+.container {
+  width: 100vw;
+  height: 82vh;
+  position: absolute;
+  top: 18vh;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+  gap: 2rem;
+}
+
+.container h2 {
+  margin-top: 2rem;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.date-container {
+  align-self: end;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#date {
+  padding: 1rem;
+  background-color: var(--gray);
+  color: #fff;
+  border: none;
+  text-transform: uppercase;
+}
+
+.boxes {
+  width: 100%;
+  height: wrap-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box {
+  width: 20rem;
+  height: 20rem;
+  background-color: var(--dark-gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+  padding: 2rem;
+}
+
+.box span {
+  flex: 1;
+  font-size: 2rem;
+}

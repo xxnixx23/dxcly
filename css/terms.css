@@ -1,0 +1,24 @@
+@import url("setup.css");
+
+.terms {
+  width: 100%;
+  height: 82vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.terms-container {
+  margin-top: 2rem;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: var(--light-gray);
+}
+
+.terms-container h1 {
+  color: var(--gray);
+}

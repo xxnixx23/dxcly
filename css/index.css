@@ -1,0 +1,227 @@
+@import url("setup.css");
+
+.hero {
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 87%;
+  background-image: url("../assets/glitch.gif");
+  background-size: cover;
+  opacity: 0.1;
+}
+
+.hero-overlay2 {
+  position: absolute;
+  width: 100%;
+  height: 87%;
+  background-image: url("../assets/glitch2.gif");
+  background-size: contain;
+  opacity: 0.045;
+}
+
+.hero span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.hero-container {
+  padding: var(--medium-padding);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  color: var(--light-gray);
+}
+
+.types {
+  margin-top: 2rem;
+  padding: var(--medium-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.type {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.type img {
+  width: 20vw;
+  height: 40vh;
+  transition: all 0.3s ease-in;
+}
+
+.type:hover > img {
+  transform: scale(1.1);
+}
+
+.type span {
+  background-color: var(--dark-gray);
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.parallax {
+  margin-top: 2rem;
+  height: 400px;
+  background-image: url(../assets/parallax.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.essentials {
+  overflow: hidden;
+  padding: var(--medium-padding);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  align-items: center;
+  color: var(--light-gray);
+}
+
+.essentials span {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.essentials button {
+  align-self: center;
+  width: max-content;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.essentials button:hover {
+  background-color: #fff;
+  color: var(--dark-gray);
+}
+
+.testimonial {
+  margin-top: 2rem;
+  padding: var(--medium-padding);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+}
+
+.testimonial img {
+  width: 40%;
+}
+
+.testimony {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.testimony h3,
+.testimony h4 {
+  text-transform: uppercase;
+}
+
+.testimony-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .header {
+    padding: var(--medium-padding);
+  }
+
+  .hero img {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    display: none;
+  }
+
+  .header-mobile {
+    display: flex;
+  }
+
+  .hero {
+    overflow: hidden;
+  }
+
+  .hero img {
+    width: 100vh;
+  }
+
+  .hero-overlay {
+    display: none;
+  }
+
+  .hero-overlay2 {
+    display: none;
+  }
+
+  .hero-container {
+    padding: 0 4rem;
+    margin-top: 2rem;
+  }
+
+  .hero-container p {
+    text-align: justify;
+  }
+
+  .types {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .type img {
+    width: 40vh;
+    height: 40vh;
+  }
+
+  .parallax {
+    background-position: center;
+  }
+
+  .testimonial {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 4rem;
+    text-align: center;
+  }
+
+  .testimony {
+    width: 100%;
+  }
+
+  .testimonial img {
+    width: 100%;
+  }
+
+  .testimony p {
+    text-align: justify;
+  }
+}

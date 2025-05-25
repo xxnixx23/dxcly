@@ -1,0 +1,124 @@
+.products-container {
+  width: 100%;
+  height: 80vh;
+  padding: 0 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.products-container input {
+  border: none;
+  background-color: var(--light-gray);
+  align-self: start;
+  padding: 0.8rem;
+  width: 20%;
+}
+
+.products-table {
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.products-table::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+.products-table::-webkit-scrollbar-track {
+  background-color: var(--dark);
+}
+
+.products-table::-webkit-scrollbar-thumb {
+  background-color: var(--light-gray);
+}
+
+.products-table img {
+  width: 80px;
+  height: 100px;
+}
+
+.products-table input[type="checkbox"] {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+
+.products-container .controls {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls .left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.controls button {
+  display: none;
+  background-color: #000;
+  padding: 0.8rem;
+  border: none;
+  color: #fff;
+  transition: ease-out 0.4s;
+  box-shadow: inset 0 0 0 0 #fff;
+}
+
+.controls button:hover {
+  outline: 1px solid #000;
+  box-shadow: inset 200px 0 0 0 #fff;
+  color: black;
+}
+
+.products-container .filter-container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.filter-container select {
+  padding: 0.8rem;
+  background-color: var(--light-gray);
+}
+
+.products-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.products-container th {
+  position: sticky;
+  top: 0;
+}
+
+.products-container td,
+.products-container th {
+  border: 1px solid var(--dark);
+  padding: 1rem;
+}
+
+.products-container tr:nth-child(even) {
+  background-color: var(--light-gray);
+  color: #000;
+}
+
+.products-container th {
+  text-align: left;
+  background-color: var(--dark-gray);
+  color: #fff;
+}
+
+.products-container .actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.actions span {
+  cursor: pointer;
+}

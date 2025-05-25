@@ -1,0 +1,51 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark: #181a1b;
+  --gray: #858d94;
+  --light-gray: #cac6bf;
+  --dark-gray: #2f3133;
+  --medium-padding: 1rem 8.5rem;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  background-color: var(--dark);
+}
+
+body::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--dark);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--light-gray);
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.content {
+  margin-top: 7.5rem;
+  min-height: 85vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .content {
+    margin-top: 4rem;
+  }
+}

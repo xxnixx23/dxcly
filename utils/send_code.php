@@ -52,7 +52,7 @@ try {
     $mail->SMTPAuth = true;
     $mail->Username = 'noreply@dxclywear.shop';
     $mail->Password = 'Dxcly_2025'; // your app password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
 
     $mail->setFrom('noreply@dxclywear.shop', 'DXCLY');

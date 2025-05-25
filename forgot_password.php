@@ -41,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
         $mail->Host = 'smtp.hostinger.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'noreply@dxclywear.shop';
-        $mail->Password = 'Dxcly_2025'; // new app password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Password = 'Dxcly_2025'; // new app password ==localhost app password fjbo sfrt ajfm ddlb==
+      $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
         $mail->setFrom('noreply@dxclywear.shop', 'DXCLY');

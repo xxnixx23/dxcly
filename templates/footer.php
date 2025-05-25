@@ -54,8 +54,8 @@
                 <div class="top-content">
                     <h6>CONTACT</h6>
                     <span>DXCLY™</span>
-                    <span>0524 Libis, Poblacion, Baliuag, Bulacan™</span>
-                    <span>info@dxcly.com</span>
+                    <span>282 maligaya st. Concepcion, San Simon, Pampanga</span>
+                    <span>noreply@dxcly.com</span>
                 </div>
                 <div class="top-content">
                     <h6>SOCIALS</h6>

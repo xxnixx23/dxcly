@@ -48,14 +48,14 @@ $mail = new PHPMailer(true);
 
 try {
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
+    $mail->Host = 'smtp.hostinger.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'itsyourgirlnikkiella@gmail.com';
-    $mail->Password = 'fjbo sfrt ajfm ddlb'; // your app password
+    $mail->Username = 'noreply@dxclywear.shop';
+    $mail->Password = 'Dxcly_2025'; // your app password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587;
+    $mail->Port = 465;
 
-    $mail->setFrom('itsyourgirlnikkiella@gmail.com', 'DXCLY');
+    $mail->setFrom('noreply@dxclywear.shop', 'DXCLY');
     $mail->addAddress($email);
     $mail->Subject = 'Password Reset Code';
     $mail->isHTML(true);

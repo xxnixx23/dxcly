@@ -66,15 +66,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
     try {
         $mail->SMTPDebug = 0;
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = 'smtp.hostinger.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'itsyourgirlnikkiella@gmail.com';
-        $mail->Password = 'pdcb lfyw biaa xtva'; // your new app password
+        $mail->Username = 'noreply@dxclywear.shop';
+        $mail->Password = 'Dxcly_2025'; // your new app password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+        $mail->Port = 465;
 
-        $mail->setFrom('itsyourgirlnikkiella@gmail.com', 'DXCLY');
-        $mail->addReplyTo('itsyourgirlnikkiella@gmail.com', 'DXCLY Support');
+        $mail->setFrom('noreply@dxclywear.shop', 'DXCLY');
+        $mail->addReplyTo('noreply@dxclywear.shop', 'DXCLY Support');
         $mail->addAddress($email, $name);
 
         $mail->Subject = 'Email Verification';

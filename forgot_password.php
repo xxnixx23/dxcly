@@ -38,14 +38,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
     try {
         $mail->SMTPDebug = 0;
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = 'smtp.hostinger.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'itsyourgirlnikkiella@gmail.com';
-        $mail->Password = 'fjbo sfrt ajfm ddlb'; // new app password
+        $mail->Username = 'noreply@dxclywear.shop';
+        $mail->Password = 'Dxcly_2025'; // new app password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+        $mail->Port = 465;
 
-        $mail->setFrom('itsyourgirlnikkiella@gmail.com', 'DXCLY');
+        $mail->setFrom('noreply@dxclywear.shop', 'DXCLY');
         $mail->addAddress($email);
         $mail->Subject = 'Password Reset Verification';
         $mail->isHTML(true);

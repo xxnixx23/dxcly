@@ -11,7 +11,7 @@ try {
     $recaptcha = $data['recaptcha'] ?? ''; // from client
 
     // ✅ reCAPTCHA verification
-    $secretKey = "6LfV5DorAAAAAIBWtPRpgWjFnEaj1NA8sVSLOTQ_";
+    $secretKey = "6LezfEgrAAAAAK0TB7RbN4C1pCqC2uAmdQlVzu1-";
     $verifyResponse = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$recaptcha");
     $responseData = json_decode($verifyResponse);
 

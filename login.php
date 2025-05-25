@@ -42,7 +42,7 @@
                 </div>
 
                 <!-- ✅ CAPTCHA goes here -->
-    <div class="g-recaptcha" data-sitekey="6LfV5DorAAAAABN8Ud22F8L7YMUjgjye7rRYgy1j"></div>
+    <div class="g-recaptcha" data-sitekey="6LezfEgrAAAAAE6ULVxlzCM_-5deAvo291C4sR5c"></div>
                 <button type="button" id="login-button">Sign In</button>
                 <a href="register.php" class="create"><span>Create Account</span></a>
             </form>

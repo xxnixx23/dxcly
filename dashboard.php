@@ -48,7 +48,7 @@
 .chart-item h3 {
   margin-bottom: 10px;
   font-size: 18px;
-  color: #333;
+  color: #fff;
   text-align: center;
 }
 

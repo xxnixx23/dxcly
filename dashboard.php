@@ -14,7 +14,7 @@
     .charts {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: flex-start;
   gap: 30px;
   margin-top: 40px;

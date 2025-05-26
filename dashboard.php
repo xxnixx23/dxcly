@@ -39,6 +39,20 @@
   object-fit: contain;
 }
 
+.chart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-item h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+
+
   </style>
 </head>
 
@@ -119,11 +133,21 @@
           </div>
         </div>
 
-        <div class="charts">
-          <canvas id="lineChart"></canvas>
-          <canvas id="barChart"></canvas>
-          <canvas id="pieChart"></canvas>
-        </div>
+       <div class="charts">
+  <div class="chart-item">
+    <h3>Daily Sales</h3>
+    <canvas id="lineChart"></canvas>
+  </div>
+  <div class="chart-item">
+    <h3>Monthly Sales</h3>
+    <canvas id="barChart"></canvas>
+  </div>
+  <div class="chart-item">
+    <h3>Order Status</h3>
+    <canvas id="pieChart"></canvas>
+  </div>
+</div>
+
       </div>
     <?php endif; ?>
 

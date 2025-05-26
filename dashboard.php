@@ -13,21 +13,23 @@
   <style>
     .charts {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;   /* Horizontal layout */
   justify-content: center;
   align-items: flex-start;
-  gap: 30px;
-  margin-top: 40px;
+  gap: 20px;
+  flex-wrap: nowrap;     /* Prevents wrapping to next line */
+  padding: 20px;
+  overflow-x: auto;      /* Enables horizontal scroll if screen is small */
 }
 
 .charts canvas {
-  width: 400px !important;
+  flex: 0 0 400px;        /* Fix width per chart */
   height: 400px !important;
-  background-color: #fff;
+  background-color: white;
   border-radius: 12px;
   padding: 10px;
-  transition: transform 0.2s ease;
 }
+
 
 .charts canvas:hover {
   transform: scale(1.03);

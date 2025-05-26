@@ -5,61 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/dashboard.css" />
   <link rel="icon" href="assets/skull.png" sizes="32x32" type="image/png" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>DXCLY: Admin Dashboard</title>
 
   <style>
     .charts {
-      display: flex;
-      flex-wrap: wrap;
-      /* justify-content: center; */
-      align-items: flex-start;
-      gap: 40px;
-      margin-top: 40px;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 40px;
+}
 
-    .charts canvas {
-      width: 380px !important;
-      height: 300px !important;
-      background-color: #fff;
-      border-radius: 12px;
-      padding: 10px;
-      transition: transform 0.2s ease;
-    }
+.charts canvas {
+  width: 380px !important;
+  height: 300px !important;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  transition: transform 0.2s ease;
+}
 
-    .charts canvas:hover {
-      transform: scale(1.03);
-      cursor: pointer;
-    }
+.charts canvas:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
 
-    #pieChart {
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
-    }
+#pieChart {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
 
-    .chart-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+.chart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    .chart-item h3 {
-      margin-bottom: 10px;
-      font-size: 18px;
-      color: #fff;
-      text-align: center;
-    }
+.chart-item h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+}
+
+
   </style>
 </head>
 
 <body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" crossorigin="anonymous"
-    referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <?php
@@ -134,20 +133,20 @@
           </div>
         </div>
 
-        <div class="charts">
-          <div class="chart-item">
-            <h3>Daily Sales</h3>
-            <canvas id="lineChart"></canvas>
-          </div>
-          <div class="chart-item">
-            <h3>Monthly Sales</h3>
-            <canvas id="barChart"></canvas>
-          </div>
-          <div class="chart-item">
-            <h3>Order Status</h3>
-            <canvas id="pieChart"></canvas>
-          </div>
-        </div>
+       <div class="charts">
+  <div class="chart-item">
+    <h3>Daily Sales</h3>
+    <canvas id="lineChart"></canvas>
+  </div>
+  <div class="chart-item">
+    <h3>Monthly Sales</h3>
+    <canvas id="barChart"></canvas>
+  </div>
+  <div class="chart-item">
+    <h3>Order Status</h3>
+    <canvas id="pieChart"></canvas>
+  </div>
+</div>
 
       </div>
     <?php endif; ?>
@@ -218,7 +217,7 @@
               if (count === orders.length) {
                 cachedSales = sales;
                 getSalesByDate(sales);
-                // renderCharts is called inside getSalesByDate now
+                renderCharts(sales, orders);
               }
             }
           };
@@ -252,8 +251,6 @@
           monthly.reduce((a, b) => a + b, 0),
           daily.reduce((a, b) => a + b, 0)
         );
-
-        renderCharts(sales, cachedOrders, selectedDate);
       }
 
       function updateSalesDisplay(monthlyTotal, dailyTotal) {
@@ -263,7 +260,7 @@
 
       let lineChartInstance, barChartInstance, pieChartInstance;
 
-      function renderCharts(sales, orders, selectedDate = new Date()) {
+      function renderCharts(sales, orders) {
         if (lineChartInstance) lineChartInstance.destroy();
         if (barChartInstance) barChartInstance.destroy();
         if (pieChartInstance) pieChartInstance.destroy();
@@ -272,8 +269,9 @@
         const barData = {};
         const pieData = { "To Pay": 0, "To Receive": 0, Completed: 0 };
 
-        const currentMonth = selectedDate.getMonth();
-        const currentYear = selectedDate.getFullYear();
+        const today = new Date();
+        const currentMonth = today.getMonth();
+        const currentYear = today.getFullYear();
 
         sales.forEach((s) => {
           const d = new Date(s.date);
@@ -291,103 +289,86 @@
           }
         });
 
-        // Prepare labels and data for line chart (days of month)
-        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-        const lineLabels = [];
-        const lineValues = [];
-        for (let day = 1; day <= daysInMonth; day++) {
-          lineLabels.push(day.toString());
-          lineValues.push(lineData[day.toString()] || 0);
-        }
+   const chartFontOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      labels: {
+        font: { size: 16 }
+      }
+    },
+    tooltip: {
+      enabled: true, // ✅ Explicitly ensure tooltips show on hover
+      mode: 'nearest',
+      intersect: false,
+      bodyFont: { size: 14 },
+      titleFont: { size: 16 }
+    }
+  },
+  scales: {
+    x: { ticks: { font: { size: 14 } } },
+    y: { ticks: { font: { size: 14 } } }
+  }
+};
 
-        // Prepare labels and data for bar chart (months in data)
-        const barLabels = Object.keys(barData).sort();
-        const barValues = barLabels.map(k => barData[k]);
 
-        // Prepare data for pie chart
-        const pieLabels = Object.keys(pieData);
-        const pieValues = pieLabels.map(k => pieData[k]);
-
-        const ctxLine = document.getElementById("lineChart").getContext("2d");
-        lineChartInstance = new Chart(ctxLine, {
+        lineChartInstance = new Chart(document.getElementById("lineChart").getContext("2d"), {
           type: "line",
           data: {
-            labels: lineLabels,
+            labels: Object.keys(lineData).map((d) => `Day ${d}`),
             datasets: [{
               label: "Daily Sales",
-              data: lineValues,
-              borderWidth: 3,
-              borderColor: "#f92626",
-              backgroundColor: "#f9a8a8",
-              fill: true,
+              data: Object.values(lineData),
+              borderColor: "#4e73df",
               tension: 0.4,
+              fill: false,
             }],
           },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-              },
-            },
-            responsive: true,
-          },
+          options: chartFontOptions,
         });
 
-        const ctxBar = document.getElementById("barChart").getContext("2d");
-        barChartInstance = new Chart(ctxBar, {
+        barChartInstance = new Chart(document.getElementById("barChart").getContext("2d"), {
           type: "bar",
           data: {
-            labels: barLabels,
+            labels: Object.keys(barData),
             datasets: [{
               label: "Monthly Sales",
-              data: barValues,
-              backgroundColor: "#e8d7d7",
-              borderWidth: 3,
-              borderColor: "#f92626",
+              data: Object.values(barData),
+              backgroundColor: "#36b9cc",
             }],
           },
-          options: {
-            responsive: true,
-            scales: {
-              y: {
-                beginAtZero: true,
-              },
-            },
-          },
+          options: chartFontOptions,
         });
 
-        const ctxPie = document.getElementById("pieChart").getContext("2d");
-        pieChartInstance = new Chart(ctxPie, {
+        pieChartInstance = new Chart(document.getElementById("pieChart").getContext("2d"), {
           type: "pie",
           data: {
-            labels: pieLabels,
+            labels: Object.keys(pieData),
             datasets: [{
               label: "Order Status",
-              data: pieValues,
-              backgroundColor: [
-                "#f5b642",
-                "#83bf60",
-                "#519872"
-              ],
-              borderWidth: 2,
-              borderColor: "#fff",
+              data: Object.values(pieData),
+              backgroundColor: ["#ffc107", "#17a2b8", "#28a745"],
             }],
           },
           options: {
             responsive: true,
+            maintainAspectRatio: true,
             plugins: {
               legend: {
-                position: "top",
                 labels: {
-                  color: "#fff",
-                },
+                  font: { size: 16 }
+                }
               },
-            },
+              tooltip: {
+                bodyFont: { size: 14 },
+                titleFont: { size: 16 }
+              }
+            }
           },
         });
       }
     </script>
-  </div>
 </body>
 
 </html>

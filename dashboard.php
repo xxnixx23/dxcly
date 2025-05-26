@@ -22,8 +22,8 @@
 
     .charts canvas {
       /* Remove fixed width/height attributes on canvas elements and control via CSS */
-      width: 800px !important;
-      height: 600px !important;
+      width: 400px !important;
+      height: 200px !important;
    
       /* Optional: add border or background for debugging */
       /* border: 1px solid #ccc; */

@@ -11,24 +11,22 @@
   <title>DXCLY: Admin Dashboard</title>
 
   <style>
-    /* Add styles to size the canvas properly */
-    .charts {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-top: 40px;
-     
-    }
+   .charts {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping to keep them in one row */
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 40px;
+  overflow-x: auto; /* Allows scrolling if screen is too small */
+}
 
-    .charts canvas {
-      /* Remove fixed width/height attributes on canvas elements and control via CSS */
-      width: 400px !important;
-      height: 200px !important;
-   
-      /* Optional: add border or background for debugging */
-      /* border: 1px solid #ccc; */
-      
-    }
+.charts canvas {
+  flex: 1 1 0;
+  min-width: 300px; /* Ensures each chart has a minimum width */
+  max-width: 100%;
+  height: 300px !important;
+}
+
   </style>
 </head>
 

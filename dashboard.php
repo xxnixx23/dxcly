@@ -23,8 +23,9 @@
 .charts canvas {
   flex: 1 1 0;
   min-width: 300px; /* Ensures each chart has a minimum width */
+  width: 100% !important;
   max-width: 100%;
-  height: 300px !important;
+  height: 100% !important;
 }
 
   </style>

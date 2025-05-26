@@ -57,7 +57,8 @@ function createProduct() {
     }
   };
 
-  createReq.open("CREATE", "api/products/create.php", true);
+  createReq.open("POST", "api/products/create.php", true); // ✅ Correct
+
   createReq.send(createData);
 }
 

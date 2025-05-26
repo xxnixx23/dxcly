@@ -17,13 +17,13 @@
   justify-content: space-between;
   gap: 30px;
   margin-top: 40px;
+
   overflow-x: auto; /* Allows scrolling if screen is too small */
 }
 
 .charts canvas {
   flex: 1 1 0;
   min-width: 300px; /* Ensures each chart has a minimum width */
-    width: 100% !important;
   max-width: 100%;
   height: 300px !important;
 }

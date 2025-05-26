@@ -25,6 +25,8 @@
                 <div class="dropdown">
                     <span><a href="dashboard.php?page=create-product">Add New Product</a></span>
                     <span><a href="dashboard.php?page=view-products">View Products</a></span>
+                       <span><a href="dashboard.php?page=manage-categories">Manage Categories</a></span>
+
                 </div>
             </span>
             <span>

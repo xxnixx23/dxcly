@@ -52,11 +52,6 @@
                         <span><a href="products.php?type=Backpacks">Backpacks</a></span>
                     </div>
                 </span>
-                <span>
-   <!--<a href="collections.php">Collectionssss</a> -->
-    <hr />
-</span>
-
             </div>
 
             <div class="right">

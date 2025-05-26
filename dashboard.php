@@ -11,7 +11,7 @@
   <title>DXCLY: Admin Dashboard</title>
 
   <style>
-    /* Add styles to size the canvas properly */
+    /* Add styles to size the canvas properly 
     .charts {
       display: flex;
       flex-wrap: wrap;
@@ -22,13 +22,13 @@
 
     .charts canvas {
       /* Remove fixed width/height attributes on canvas elements and control via CSS */
-      width: 800px !important;
+      /*width: 800px !important;
       height: 600px !important;
    
       /* Optional: add border or background for debugging */
-      /* border: 1px solid #ccc; */
+      /* border: 1px solid #ccc; 
       
-    }
+    }*/
   </style>
 </head>
 

@@ -21,7 +21,7 @@
 }
 
 .charts canvas {
-  width: 300px !important;
+  width: 400px !important;
   height: 300px !important;
   background-color: #fff;
   border-radius: 12px;

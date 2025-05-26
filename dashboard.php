@@ -16,7 +16,7 @@
   flex-wrap: wrap;
   /* justify-content: center; */
   align-items: flex-start;
-  gap: 30px;
+  gap: 60px;
   margin-top: 40px;
 }
 

@@ -12,26 +12,33 @@
 
   <style>
     .charts {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: flex-start;
-      gap: 30px;
-      margin-top: 40px;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 40px;
+}
 
-    .charts canvas {
-      width: 400px !important;
-      height: 400px !important;
-      background-color: #fff;
-      border-radius: 12px;
-      padding: 10px;
-    }
+.charts canvas {
+  width: 400px !important;
+  height: 400px !important;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  transition: transform 0.2s ease;
+}
 
-    #pieChart {
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
-    }
+.charts canvas:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+#pieChart {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
   </style>
 </head>
 
@@ -258,25 +265,29 @@
           }
         });
 
-        const chartFontOptions = {
-          plugins: {
-            legend: {
-              labels: {
-                font: { size: 16 }
-              }
-            },
-            tooltip: {
-              bodyFont: { size: 14 },
-              titleFont: { size: 16 }
-            }
-          },
-          scales: {
-            x: { ticks: { font: { size: 14 } } },
-            y: { ticks: { font: { size: 14 } } }
-          },
-          responsive: true,
-          maintainAspectRatio: false
-        };
+   const chartFontOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      labels: {
+        font: { size: 16 }
+      }
+    },
+    tooltip: {
+      enabled: true, // ✅ Explicitly ensure tooltips show on hover
+      mode: 'nearest',
+      intersect: false,
+      bodyFont: { size: 14 },
+      titleFont: { size: 16 }
+    }
+  },
+  scales: {
+    x: { ticks: { font: { size: 14 } } },
+    y: { ticks: { font: { size: 14 } } }
+  }
+};
+
 
         lineChartInstance = new Chart(document.getElementById("lineChart").getContext("2d"), {
           type: "line",

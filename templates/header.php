@@ -52,29 +52,10 @@
                         <span><a href="products.php?type=Backpacks">Backpacks</a></span>
                     </div>
                 </span>
-                <div class="dropdown-mobile">
-    <div class="title">
-        <span>Collections</span>
-        <span class="material-symbols-outlined arrow">
-            keyboard_arrow_right
-        </span>
-    </div>
-    <div class="items">
-        <?php
-        $sql = "SELECT name FROM categories ORDER BY created_at DESC LIMIT 10";
-        $result = mysqli_query($conn, $sql);
-
-        if ($result && mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                $type = htmlspecialchars($row['name']);
-                echo "<span><a href='products.php?type=" . urlencode($type) . "'>" . $type . "</a></span>";
-            }
-        } else {
-            echo "<span>No categories</span>";
-        }
-        ?>
-    </div>
-</div>
+                <span>
+   <!--<a href="collections.php">Collectionssss</a> -->
+    <hr />
+</span>
 
             </div>
 

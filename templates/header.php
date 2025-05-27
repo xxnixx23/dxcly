@@ -53,7 +53,7 @@
                     </div>
                 </span>
                 <span>
-   <!--<a href="collections.php">Collectionssss</a> -->
+    <a href="collections.php">Collections</a>
     <hr />
 </span>
 

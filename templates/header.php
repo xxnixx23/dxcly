@@ -52,17 +52,15 @@
                         <span><a href="products.php?type=Backpacks">Backpacks</a></span>
                     </div>
                 </span>
-                <span>
-   <!--<a href="collections.php">Collectionssss</a> -->
-   <span class="dropdown-container">
-    Collections
-    <hr />
-    <div class="dropdown">
+                <div class="dropdown-mobile">
+    <div class="title">
+        <span>Collections</span>
+        <span class="material-symbols-outlined arrow">
+            keyboard_arrow_right
+        </span>
+    </div>
+    <div class="items">
         <?php
-        // Include your DB connection
-        include 'config/connection.php';
-
-        // Fetch categories from the database
         $sql = "SELECT name FROM categories ORDER BY created_at DESC LIMIT 10";
         $result = mysqli_query($conn, $sql);
 
@@ -76,10 +74,7 @@
         }
         ?>
     </div>
-</span>
-
-    <hr />
-</span>
+</div>
 
             </div>
 

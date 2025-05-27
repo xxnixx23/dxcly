@@ -54,6 +54,30 @@
                 </span>
                 <span>
    <!--<a href="collections.php">Collectionssss</a> -->
+   <span class="dropdown-container">
+    Collections
+    <hr />
+    <div class="dropdown">
+        <?php
+        // Include your DB connection
+        include 'config/connection.php';
+
+        // Fetch categories from the database
+        $sql = "SELECT name FROM categories ORDER BY created_at DESC LIMIT 10";
+        $result = mysqli_query($conn, $sql);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $type = htmlspecialchars($row['name']);
+                echo "<span><a href='products.php?type=" . urlencode($type) . "'>" . $type . "</a></span>";
+            }
+        } else {
+            echo "<span>No categories</span>";
+        }
+        ?>
+    </div>
+</span>
+
     <hr />
 </span>
 

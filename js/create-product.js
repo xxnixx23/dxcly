@@ -33,31 +33,56 @@ function createProduct() {
 
   let createReq = new XMLHttpRequest();
 
+  // ✅ Response handling
   createReq.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      let createRes = JSON.parse(this.responseText);
+    if (this.readyState === 4) {
+      if (this.status === 200) {
+        let createRes = JSON.parse(this.responseText);
 
-      if (createRes.success == true) {
-        toastr.success(createRes.message, "Success", {
-          timeOut: 2000,
-          preventDuplicates: true,
-          positionClass: "toast-bottom-left",
-          onHidden: () => {
-            uploadPicture();
-            window.location.href = "dashboard.php?page=create-product";
-          },
-        });
+        if (createRes.success) {
+          toastr.success(createRes.message, "Success", {
+            timeOut: 2000,
+            preventDuplicates: true,
+            positionClass: "toast-bottom-left",
+            onHidden: () => {
+              uploadPicture();
+              window.location.href = "dashboard.php?page=create-product";
+            },
+          });
+        } else {
+          toastr.warning(createRes.message, "Warning", {
+            timeOut: 2000,
+            preventDuplicates: true,
+            positionClass: "toast-bottom-left",
+          });
+        }
       } else {
-        toastr.warning(createRes.message, "Warning", {
-          timeOut: 2000,
-          preventDuplicates: true,
-          positionClass: "toast-bottom-left",
-        });
+        // 🚨 Server returned an error status
+        toastr.error(
+          "Server error occurred. Please try again later.",
+          "Error",
+          {
+            timeOut: 2000,
+            positionClass: "toast-bottom-left",
+          }
+        );
       }
     }
   };
 
-  createReq.open("CREATE", "api/products/create.php", true);
+  // ✅ Handle network errors
+  createReq.onerror = function () {
+    toastr.error(
+      "Unable to connect to the server. Please check your connection.",
+      "Connection Error",
+      {
+        timeOut: 2000,
+        positionClass: "toast-bottom-left",
+      }
+    );
+  };
+
+  createReq.open("POST", "api/products/create.php", true); // use POST instead of CREATE
   createReq.send(createData);
 }
 
